@@ -1,0 +1,17 @@
+{
+  "name": "stella-embed-builder",
+  "version": "1.0.0",
+  "description": "Embed generator for nikkoxd/stella",
+  "repository": "https://github.com/nikkoxd/stella-embed-builder.git",
+  "author": "nikko <35370166+nikkoxd@users.noreply.github.com>",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "bootstrap": "5.3.2"
+  },
+  "devDependencies": {
+    "sass": "^1.70.0"
+  },
+  "scripts": {
+    "watch-sass": "sass --watch ./scss/custom.scss ./css/custom.css"
+  }
+}
