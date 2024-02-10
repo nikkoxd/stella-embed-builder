@@ -1,18 +1,35 @@
-function addFields() {
-  // Create a new container div for the new fields
-  var fields = document.getElementById("fields");
-  var newFieldContainer = document.createElement("div");
-  newFieldContainer.classList.add("d-flex", "gap-2", "fields");
+function addField() {
+  const fields = document.getElementById("fields");
+  const newFieldContainer = document
+    .createElement("div")
+    .classList.add("d-flex", "gap-2", "fields");
 
-  // Create the HTML for the new fields
-  var newField = `
+  const newField = `
         <div class="d-flex flex-column gap-2 rounded discord-field">
           <input type="text" class="discord-title form-control" placeholder="Name"/>
           <textarea class="form-control" placeholder="Value"></textarea>
         </div>
       `;
 
-  // Append the new fields to the container
   newFieldContainer.innerHTML = newField;
   fields.appendChild(newFieldContainer);
+}
+
+function addActionRow() {
+  const rows = document.getElementById("rows");
+  const newRowContainer = document.createElement("div");
+  newRowContainer.classList.add("d-flex", "flex-column", "gap-2", "action-row");
+
+  const newRow = `
+            <div class="d-flex flex-column gap-2 rounded border p-3 embed">
+              <b>Button 1</b>
+            </div>
+            Type:
+            <select class="form-select" id="type">
+              <option value="button" selected>Button</option>
+              <option value="select">Select menu</option>
+            </select>`;
+
+  newRowContainer.innerHTML = newRow;
+  rows.appendChild(newRowContainer);
 }

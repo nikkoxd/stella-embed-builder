@@ -64,7 +64,7 @@
               <div class="d-flex gap-2" id="fields"></div>
               <button
                 type="button"
-                onclick="addFields()"
+                onclick="addField()"
                 class="btn btn-outline-light mt-2"
               >
                 Add field
@@ -76,24 +76,14 @@
           </button>
         </div>
         <!-- Action rows -->
-        <div class="md-3">
-          <p class="fs-5">Action rows</p>
-          <div class="d-flex flex-column gap-2 rounded border p-3 action-row">
-            <b>Action row 1</b>
-            Type:
-            <select class="form-select" id="type">
-              <option value="button" selected>Button</option>
-              <option value="select">Select menu</option>
-            </select>
-            Buttons:
-            <div class="d-flex flex-column gap-2 rounded border p-3 embed">
-              <b>Button 1</b>
-            </div>
-          </div>
-          <button type="button" class="btn btn-outline-light mt-3">
-            Add action row
-          </button>
-        </div>
+        <div class="md-3" id="rows"></div>
+        <button
+          type="button"
+          onclick="addActionRow()"
+          class="btn btn-outline-light mt-3"
+        >
+          Add action row
+        </button>
       </form>
     </div>
   </body>
