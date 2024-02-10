@@ -38,43 +38,14 @@
           ></textarea>
         </div>
         <!-- Embeds -->
-        <div class="mb-3">
-          <div class="d-flex rounded discord-embed">
-            <!-- Color bar -->
-            <div class="discord-embed-bar">
-              <input type="color" class="discord-color" />
-            </div>
-            <!-- Embed content -->
-            <div
-              class="d-flex flex-fill flex-column gap-2 p-3 discord-embed-body"
-            >
-              <!-- Title -->
-              <input
-                type="text"
-                class="discord-title form-control"
-                placeholder="Title"
-              />
-              <!-- Description -->
-              <textarea
-                class="form-control"
-                rows="1"
-                placeholder="Description"
-              ></textarea>
-              <!-- Fields -->
-              <div class="d-flex gap-2" id="fields"></div>
-              <button
-                type="button"
-                onclick="addField()"
-                class="btn btn-outline-light mt-2"
-              >
-                Add field
-              </button>
-            </div>
-          </div>
-          <button type="button" class="btn btn-outline-light mt-3">
-            Add embed
-          </button>
-        </div>
+        <div class="mb-3" id="embeds"></div>
+        <button
+          type="button"
+          onclick="addEmbed()"
+          class="btn btn-outline-light mt-3"
+        >
+          Add embed
+        </button>
         <!-- Action rows -->
         <div class="md-3" id="rows"></div>
         <button
