@@ -15,7 +15,7 @@ export default function Embed() {
   }
 
   return (
-    <div className="flex flex-col px-3 py-5 rounded border border-gray-100 bg-gray-300 dark:border-gray-600 dark:bg-gray-800 backdrop-blur">
+    <div className="flex flex-col my-2 px-3 py-5 rounded border border-gray-100 bg-gray-300 dark:border-gray-600 dark:bg-gray-800 backdrop-blur">
       <input
         type="text"
         placeholder="Embed title"
