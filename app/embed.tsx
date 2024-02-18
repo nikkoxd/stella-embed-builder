@@ -45,6 +45,9 @@ export default function Embed() {
           +Inline
         </button>
       </div>
+      <div className="flex mt-2">
+        Color: <input type="color" className="bg-transparent" />
+      </div>
     </div>
   );
 }
