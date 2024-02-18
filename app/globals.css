@@ -32,6 +32,8 @@ body {
 
 input[type="color"] {
   appearance: none;
+  height: 1.5rem;
+  width: 1.5rem;
   border: none;
 }
 input[type="color"]::-webkit-color-swatch-wrapper {
