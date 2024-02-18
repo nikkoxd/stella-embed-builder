@@ -24,6 +24,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## TODO
 
+- Fix icons not being rendered in production
 - Replace adding embeds/rows buttons with icons
 - Add functionality for adding select rows
 - Replace message/description/value inputs with `<textarea>`
