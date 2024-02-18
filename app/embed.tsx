@@ -34,12 +34,14 @@ export default function Embed() {
       <div className="flex gap-2 mt-2">
         <button
           onClick={() => addFields(false)}
+          title="Add field"
           className="p-0 w-fit text-gray-400 hover:text-black dark:hover:text-white transition"
         >
           <span className="material-symbols-rounded">splitscreen_add</span>
         </button>
         <button
           onClick={() => addFields(true)}
+          title="Add inline field"
           className="p-0 w-fit text-gray-400 hover:text-black dark:hover:text-white transition"
         >
           <span className="material-symbols-rounded">
@@ -48,6 +50,7 @@ export default function Embed() {
         </button>
         <label
           htmlFor="color"
+          title="Select color"
           className="w-fit text-gray-400 hover:text-black dark:hover:text-white hover:cursor-pointer transition"
         >
           <span className="material-symbols-rounded">colors</span>
