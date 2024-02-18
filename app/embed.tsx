@@ -31,22 +31,28 @@ export default function Embed() {
           <EmbedField key={i} isInline={item} />
         ))}
       </div>
-      <div className="flex gap-2">
+      <div className="flex gap-2 mt-2">
         <button
           onClick={() => addFields(false)}
-          className="mt-2 w-fit h-7 px-2 bg-lime-700 rounded border border-lime-800 hover:bg-lime-600 hover:border-lime-500 transition"
+          className="p-0 w-fit text-gray-400 hover:text-black dark:hover:text-white transition"
         >
-          +Field
+          <span className="material-symbols-rounded">splitscreen_add</span>
         </button>
         <button
           onClick={() => addFields(true)}
-          className="mt-2 w-fit h-7 px-2 bg-lime-700 rounded border border-lime-800 hover:bg-lime-600 hover:border-lime-500 transition"
+          className="p-0 w-fit text-gray-400 hover:text-black dark:hover:text-white transition"
         >
-          +Inline
+          <span className="material-symbols-rounded">
+            splitscreen_vertical_add
+          </span>
         </button>
-      </div>
-      <div className="flex mt-2">
-        Color: <input type="color" className="bg-transparent" />
+        <label
+          htmlFor="color"
+          className="w-fit text-gray-400 hover:text-black dark:hover:text-white hover:cursor-pointer transition"
+        >
+          <span className="material-symbols-rounded">colors</span>
+        </label>
+        <input id="color" type="color" className="hidden" />
       </div>
     </div>
   );
