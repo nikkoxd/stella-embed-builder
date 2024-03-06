@@ -6,6 +6,8 @@ import {
   type Output,
   type Option,
 } from "~/types/message";
+import { Embed } from "~/components/embed";
+import { Row } from "~/components/row";
 
 export default function Home() {
   function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -33,9 +35,11 @@ export default function Home() {
     const embedDescriptions = formData.getAll("embed-description");
     const embedColors = formData.getAll("embed-color");
 
-    let embedFields: EmbedField[];
+    const embedFields: EmbedField[] = [];
     const fieldNames = formData.getAll("field-name");
     const fieldValues = formData.getAll("field-value");
+
+    // FIXME: fields are shared between each embed
 
     fieldNames.forEach((_, i) => {
       embedFields.push({
@@ -86,6 +90,8 @@ export default function Home() {
     const optionEmojis = formData.getAll("option-emoji");
     const optionDefault = formData.getAll("option-default");
 
+    // FIXME: options are shared between each select menu
+
     optionLabels.forEach((_, i) => {
       selectOptions.push({
         label: String(optionLabels[i]),
@@ -122,7 +128,7 @@ export default function Home() {
         <title>Create T3 App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="bg-background flex min-h-screen justify-center gap-5 text-white">
+      <main className="container mx-auto text-white">
         <form onSubmit={onSubmit} className="mr-16 mt-10 flex flex-col gap-2">
           <h1 className="mb-5 text-3xl font-bold">Generator</h1>
           <input
@@ -140,63 +146,28 @@ export default function Home() {
             <input type="checkbox" name="tts" id="tts" />
             <label htmlFor="tts">Text-to-Speech?</label>
           </div>
-          <div className="embeds">
-            <div className="embed flex flex-col rounded border border-gray-700 bg-gray-800 p-2">
-              <input
-                type="text"
-                name="embed-title"
-                placeholder="Title"
-                className="border-b-2 border-transparent bg-transparent focus-visible:border-gray-500 focus-visible:outline-none"
-              />
-              <textarea
-                name="embed-description"
-                placeholder="Description"
-                className="border-b-2 border-transparent bg-transparent focus-visible:border-gray-500 focus-visible:outline-none"
-              />
-              <input type="color" name="embed-color" />
-            </div>
+          <div className="embeds flex flex-col gap-2">
+            <Embed />
+            <Embed />
           </div>
           <div className="rows">
-            <div className="row button flex flex-col rounded border border-gray-700 bg-gray-800 p-2">
-              <input
-                type="text"
-                name="button-customId"
-                placeholder="Button Id"
-                className="border-b-2 border-transparent bg-transparent focus-visible:border-gray-500 focus-visible:outline-none"
-              />
-              <input
-                type="text"
-                name="button-label"
-                placeholder="Button Label"
-                className="border-b-2 border-transparent bg-transparent focus-visible:border-gray-500 focus-visible:outline-none"
-              />
-              <input
-                type="text"
-                name="button-style"
-                placeholder="Button Style"
-                className="border-b-2 border-transparent bg-transparent focus-visible:border-gray-500 focus-visible:outline-none"
-              />
-              <input
-                type="text"
-                name="button-emoji"
-                placeholder="Button Emoji"
-                className="border-b-2 border-transparent bg-transparent focus-visible:border-gray-500 focus-visible:outline-none"
-              />
-              <input
-                type="text"
-                name="button-url"
-                placeholder="Button URL"
-                className="border-b-2 border-transparent bg-transparent focus-visible:border-gray-500 focus-visible:outline-none"
-              />
-              <input type="checkbox" name="button-disabled" />
-            </div>
+            <Row type="button" />
+            <Row type="select" />
           </div>
-          <button
-            type="submit"
-            className="bg-primary hover:bg-primaryFocus rounded py-2 transition"
-          >
-            Submit
-          </button>
+          <div className="flex gap-2">
+            <button
+              type="submit"
+              className="rounded bg-primary px-10 py-2 transition hover:bg-primary-focus"
+            >
+              Submit
+            </button>
+            <button className="rounded bg-secondary px-5 py-2 transition hover:bg-secondary-focus">
+              +Embed
+            </button>
+            <button className="rounded bg-secondary px-5 py-2 transition hover:bg-secondary-focus">
+              +Row
+            </button>
+          </div>
         </form>
         <div className="mt-10">
           <h1 className="mb-5 text-3xl font-bold">Output</h1>
