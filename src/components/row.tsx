@@ -1,7 +1,7 @@
 export function Row({ type }: { type: "button" | "select" }) {
   if (type == "button") {
     return (
-      <div className="row button flex flex-col rounded border border-gray-700 bg-gray-800 p-2">
+      <div className="row button mb-2 flex flex-col rounded bg-bg-secondary p-2">
         <input
           type="text"
           name="button-customId"
@@ -37,7 +37,7 @@ export function Row({ type }: { type: "button" | "select" }) {
     );
   } else {
     return (
-      <div className="row select flex flex-col rounded border border-gray-700 bg-gray-800 p-2">
+      <div className="row select mb-2 flex flex-col rounded bg-bg-secondary p-2">
         <input
           type="text"
           name="select-customId"
