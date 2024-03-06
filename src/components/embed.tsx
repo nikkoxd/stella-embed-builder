@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Field } from "./field";
 
-export function Embed() {
+export function Embed({ id }: { id: number }) {
   const [fields, setFields] = useState([] as boolean[]);
 
   function addField() {
@@ -18,22 +18,28 @@ export function Embed() {
         type="text"
         name="embed-title"
         placeholder="Title"
+        className="font-bold"
         required={true}
       />
       <textarea name="embed-description" placeholder="Description" />
       <div className="fields">
         {fields.map((item, i) => (
-          <Field inline={item} key={i} />
+          <Field key={i} id={i} />
         ))}
       </div>
-      <input type="color" name="embed-color" />
       <div className="flex gap-2">
-        <button
-          type="button"
-          className="hover:underline hover:underline-offset-4"
+        <label
+          htmlFor={`color-${id}`}
+          className="cursor-pointer hover:underline hover:underline-offset-4"
         >
           Set color
-        </button>
+        </label>
+        <input
+          type="color"
+          name="embed-color"
+          id={`color-${id}`}
+          className="hidden"
+        />
         <button
           type="button"
           className="hover:underline hover:underline-offset-4"
