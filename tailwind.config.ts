@@ -12,6 +12,7 @@ export default {
         "primary-focus": "#1A6334",
         secondary: "#5765F2",
         "secondary-focus": "#4752C4",
+        link: "#01A9FC",
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],

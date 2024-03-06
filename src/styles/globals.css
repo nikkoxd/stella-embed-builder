@@ -3,5 +3,19 @@
 @tailwind utilities;
 
 body {
-  background-color: #313339;
+  @apply bg-bg;
+}
+
+a {
+  @apply text-link;
+  &:hover {
+    @apply underline underline-offset-4;
+  }
+}
+
+input[type="text"] & textarea {
+  @apply border-b-2 border-transparent bg-transparent;
+  &:focus-visible {
+    @apply border-gray-500 outline-none;
+  }
 }

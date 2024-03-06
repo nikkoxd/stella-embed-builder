@@ -145,19 +145,23 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="container mx-auto text-white">
-        <form onSubmit={onSubmit} className="mr-16 mt-10 flex flex-col gap-2">
-          <h1 className="mb-5 text-3xl font-bold">Generator</h1>
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            className="border-b-2 border-transparent bg-transparent focus-visible:border-gray-500 focus-visible:outline-none"
-          />
-          <textarea
-            name="content"
-            placeholder="Content"
-            className="border-b-2 border-transparent bg-transparent focus-visible:border-gray-500 focus-visible:outline-none"
-          />
+        <div className="my-10 flex items-center justify-between">
+          <h1 className="text-3xl font-bold">Stella 💫 Embed Builder</h1>
+          <nav>
+            <a href="http://discord.gg/starrysky" className="ml-3">
+              Discord
+            </a>
+            <a
+              href="http://github.com/nikkoxd/stella-embed-builder"
+              className="ml-3"
+            >
+              GitHub
+            </a>
+          </nav>
+        </div>
+        <form onSubmit={onSubmit} className="mr-16 flex flex-col gap-2">
+          <input type="text" name="name" placeholder="Name" />
+          <textarea name="content" placeholder="Content" />
           <div className="flex gap-1">
             <input type="checkbox" name="tts" id="tts" />
             <label htmlFor="tts">Text-to-Speech?</label>
@@ -205,9 +209,11 @@ export default function Home() {
             </button>
           </div>
         </form>
-        <div className="mt-10">
-          <h1 className="mb-5 text-3xl font-bold">Output</h1>
-          <pre id="output">Output area</pre>
+        <div className="my-10">
+          <h1 className="mb-5 text-2xl font-bold">JSON Output</h1>
+          <pre id="output" className="rounded bg-bg-secondary p-2">
+            Output area
+          </pre>
         </div>
       </main>
     </>

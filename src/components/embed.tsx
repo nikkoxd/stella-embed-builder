@@ -10,17 +10,8 @@ export function Embed() {
 
   return (
     <div className="embed flex flex-col rounded bg-bg-secondary p-2">
-      <input
-        type="text"
-        name="embed-title"
-        placeholder="Title"
-        className="border-b-2 border-transparent bg-transparent font-bold focus-visible:border-gray-500 focus-visible:outline-none"
-      />
-      <textarea
-        name="embed-description"
-        placeholder="Description"
-        className="border-b-2 border-transparent bg-transparent focus-visible:border-gray-500 focus-visible:outline-none"
-      />
+      <input type="text" name="embed-title" placeholder="Title" />
+      <textarea name="embed-description" placeholder="Description" />
       <div className="fields">
         {fields.map((item, i) => (
           <Field inline={item} key={i} />
