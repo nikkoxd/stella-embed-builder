@@ -159,8 +159,13 @@ export default function Home() {
             </a>
           </nav>
         </div>
-        <form onSubmit={onSubmit} className="mr-16 flex flex-col gap-2">
-          <input type="text" name="name" placeholder="Name" />
+        <form onSubmit={onSubmit} className="flex flex-col gap-2">
+          <input
+            type="text"
+            name="name"
+            placeholder="Message name"
+            required={true}
+          />
           <textarea name="content" placeholder="Content" />
           <div className="flex gap-1">
             <input type="checkbox" name="tts" id="tts" />
@@ -184,24 +189,28 @@ export default function Home() {
               Submit
             </button>
             <button
+              type="button"
               className="rounded bg-secondary px-5 py-2 transition hover:bg-secondary-focus"
               onClick={addEmbed}
             >
               Add Embed
             </button>
             <button
+              type="button"
               className="rounded bg-secondary px-5 py-2 transition hover:bg-secondary-focus"
               onClick={() => addRow("button")}
             >
               Add Button Row
             </button>
             <button
+              type="button"
               className="rounded bg-secondary px-5 py-2 transition hover:bg-secondary-focus"
               onClick={() => addRow("select")}
             >
               Add Select Row
             </button>
             <button
+              type="button"
               className="rounded bg-secondary px-5 py-2 transition hover:bg-secondary-focus"
               onClick={reset}
             >
