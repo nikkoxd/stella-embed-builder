@@ -24,17 +24,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## TODO
-
-- ~~Fix icons not being rendered in production~~
-- Replace adding embeds/rows buttons with icons
-- Add functionality for adding select rows
-- Replace message/description/value inputs with `<textarea>`
-- Move color picker to the button
-- Add functionality for converting the values to JSON for export
-- Add reset functionality
-- Add functionality for removing elements
-
 ## License
 
 This project is licensed under [GNU General Public License v3.0](https://github.com/nikkoxd/stella-embed-builder/blob/main/LICENSE)
