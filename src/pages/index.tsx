@@ -141,7 +141,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Create T3 App</title>
+        <title>Stella 💫 Embed Builder</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="container mx-auto text-white">
