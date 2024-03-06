@@ -154,7 +154,7 @@ export default function Home() {
             </a>
           </nav>
         </div>
-        <form onSubmit={onSubmit} className="flex flex-col gap-2">
+        <form onSubmit={onSubmit}>
           <input
             type="text"
             name="name"
@@ -162,11 +162,11 @@ export default function Home() {
             required={true}
           />
           <textarea name="content" placeholder="Content" />
-          <div className="flex gap-1">
+          <div className="mb-2 flex gap-1">
             <input type="checkbox" name="tts" id="tts" />
             <label htmlFor="tts">Text-to-Speech?</label>
           </div>
-          <div className="embeds flex flex-col gap-2">
+          <div className="embeds">
             {embeds.map((_, i) => (
               <Embed key={i} id={i} />
             ))}
@@ -176,7 +176,7 @@ export default function Home() {
               <Row id={i} type={item} key={i} />
             ))}
           </div>
-          <div className="flex gap-2">
+          <div className="mt-4 flex gap-2">
             <button
               type="submit"
               className="rounded bg-primary px-10 py-2 transition hover:bg-primary-focus"

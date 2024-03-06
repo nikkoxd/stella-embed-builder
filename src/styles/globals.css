@@ -16,7 +16,7 @@ a {
 input[type="text"],
 input[type="number"],
 textarea {
-  @apply rounded bg-transparent p-1;
+  @apply mb-2 w-full rounded bg-transparent p-1;
   &:hover {
     @apply bg-black bg-opacity-5;
   }
