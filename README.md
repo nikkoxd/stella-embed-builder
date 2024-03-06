@@ -36,3 +36,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 - Add functionality for converting the values to JSON for export
 - Add reset functionality
 - Add functionality for removing elements
+
+## License
+
+This project is licensed under [GNU General Public License v3.0](https://github.com/nikkoxd/stella-embed-builder/blob/main/LICENSE)
