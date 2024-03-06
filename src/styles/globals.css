@@ -13,7 +13,8 @@ a {
   }
 }
 
-input[type="text"] & textarea {
+input[type="text"],
+textarea {
   @apply border-b-2 border-transparent bg-transparent;
   &:focus-visible {
     @apply border-gray-500 outline-none;
