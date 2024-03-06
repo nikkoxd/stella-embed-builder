@@ -1,17 +1,18 @@
 import { type AppType } from "next/app";
-import { Inter } from "next/font/google";
+import { Noto_Sans } from "next/font/google";
 
 import { api } from "~/utils/api";
 
 import "~/styles/globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
+const noto = Noto_Sans({
+  subsets: ["cyrillic", "latin"],
   variable: "--font-sans",
 });
+
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
-    <main className={`font-sans ${inter.variable}`}>
+    <main className={`font-sans ${noto.variable}`}>
       <Component {...pageProps} />
     </main>
   );
