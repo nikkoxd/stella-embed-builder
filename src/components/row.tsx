@@ -1,4 +1,4 @@
-export function Row({ type }: { type: "button" | "select" }) {
+export function Row({ id, type }: { id: number; type: "button" | "select" }) {
   if (type == "button") {
     return (
       <div className="row button mb-2 flex flex-col rounded bg-bg-secondary p-2">
@@ -22,7 +22,14 @@ export function Row({ type }: { type: "button" | "select" }) {
         />
         <input type="text" name="button-emoji" placeholder="Button Emoji" />
         <input type="text" name="button-url" placeholder="Button URL" />
-        <input type="checkbox" name="button-disabled" />
+        <div className="flex gap-1">
+          <input
+            type="checkbox"
+            name="button-disabled"
+            id={`button-diabled-${id}`}
+          />
+          <label htmlFor={`button-diabled-${id}`}>Disabled?</label>
+        </div>
       </div>
     );
   } else {
