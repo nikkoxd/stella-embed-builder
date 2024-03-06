@@ -1,29 +1,34 @@
-# Create T3 App
+# Stella 💫 Embed Builder
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Embed generator built use with [nikkoxd/stella](https://github.com/nikkoxd/stella)
 
-## What's next? How do I make an app with this?
+## Getting Started
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+First, run the development server:
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Learn More
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+## TODO
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+- ~~Fix icons not being rendered in production~~
+- Replace adding embeds/rows buttons with icons
+- Add functionality for adding select rows
+- Replace message/description/value inputs with `<textarea>`
+- Move color picker to the button
+- Add functionality for converting the values to JSON for export
+- Add reset functionality
+- Add functionality for removing elements
