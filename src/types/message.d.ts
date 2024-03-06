@@ -9,8 +9,8 @@ export interface Output {
 
 export interface Embed {
   title: string;
-  description: string;
-  color: string;
+  description: string | null;
+  color: number;
   fields: EmbedField[];
 }
 

@@ -1,13 +1,8 @@
 import Head from "next/head";
 import { useState, type FormEvent } from "react";
-import {
-  type Button,
-  type EmbedField,
-  type Output,
-  type Option,
-} from "~/types/message";
 import { Embed } from "~/components/embed";
 import { Row } from "~/components/row";
+import type { Button, EmbedField, Output, Option } from "~/types/message";
 
 export default function Home() {
   const [embeds, setEmbeds] = useState([] as number[]);
@@ -68,7 +63,7 @@ export default function Home() {
       output.embeds.push({
         title: String(embedTitles[i]),
         description: String(embedDescriptions[i]),
-        color: String(embedColors[i]),
+        color: parseInt(String(embedColors[i]).replace("#", ""), 16),
         fields: embedFields,
       });
     });
@@ -173,12 +168,12 @@ export default function Home() {
           </div>
           <div className="embeds flex flex-col gap-2">
             {embeds.map((_, i) => (
-              <Embed key={i} />
+              <Embed key={i} id={i} />
             ))}
           </div>
           <div className="rows">
             {rows.map((item, i) => (
-              <Row type={item} key={i} />
+              <Row id={i} type={item} key={i} />
             ))}
           </div>
           <div className="flex gap-2">
