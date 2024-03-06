@@ -1,5 +1,9 @@
 # Stella 💫 Embed Builder
 
+[![Discord](https://img.shields.io/discord/764191923954122752)](https://discord.gg/starrysky)
+![Vercel](https://vercelbadge.vercel.app/api/nikkoxd/stella-embed-builder)
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
+
 Embed generator built use with [nikkoxd/stella](https://github.com/nikkoxd/stella)
 
 ## Getting Started
