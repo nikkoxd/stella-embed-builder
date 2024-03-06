@@ -40,3 +40,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# vscode project settings
+.vscode
+
+# mac
+.DS_Store
