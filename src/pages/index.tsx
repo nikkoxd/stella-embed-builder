@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import {
   type Button,
   type EmbedField,
@@ -10,6 +10,22 @@ import { Embed } from "~/components/embed";
 import { Row } from "~/components/row";
 
 export default function Home() {
+  const [embeds, setEmbeds] = useState([] as number[]);
+  const [rows, setRows] = useState([] as ("button" | "select")[]);
+
+  function addEmbed() {
+    setEmbeds([...embeds, 0]);
+  }
+
+  function addRow(type: "button" | "select") {
+    setRows([...rows, type]);
+  }
+
+  function reset() {
+    setEmbeds([]);
+    setRows([]);
+  }
+
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -147,12 +163,14 @@ export default function Home() {
             <label htmlFor="tts">Text-to-Speech?</label>
           </div>
           <div className="embeds flex flex-col gap-2">
-            <Embed />
-            <Embed />
+            {embeds.map((_, i) => (
+              <Embed key={i} />
+            ))}
           </div>
           <div className="rows">
-            <Row type="button" />
-            <Row type="select" />
+            {rows.map((item, i) => (
+              <Row type={item} key={i} />
+            ))}
           </div>
           <div className="flex gap-2">
             <button
@@ -161,11 +179,29 @@ export default function Home() {
             >
               Submit
             </button>
-            <button className="rounded bg-secondary px-5 py-2 transition hover:bg-secondary-focus">
+            <button
+              className="rounded bg-secondary px-5 py-2 transition hover:bg-secondary-focus"
+              onClick={addEmbed}
+            >
               +Embed
             </button>
-            <button className="rounded bg-secondary px-5 py-2 transition hover:bg-secondary-focus">
-              +Row
+            <button
+              className="rounded bg-secondary px-5 py-2 transition hover:bg-secondary-focus"
+              onClick={() => addRow("button")}
+            >
+              +Button Row
+            </button>
+            <button
+              className="rounded bg-secondary px-5 py-2 transition hover:bg-secondary-focus"
+              onClick={() => addRow("select")}
+            >
+              +Select Row
+            </button>
+            <button
+              className="rounded bg-secondary px-5 py-2 transition hover:bg-secondary-focus"
+              onClick={reset}
+            >
+              Reset
             </button>
           </div>
         </form>
