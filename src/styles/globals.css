@@ -15,8 +15,11 @@ a {
 
 input[type="text"],
 textarea {
-  @apply border-b-2 border-transparent bg-transparent;
+  @apply rounded bg-transparent p-1;
+  &:hover {
+    @apply bg-black bg-opacity-5;
+  }
   &:focus-visible {
-    @apply border-gray-500 outline-none;
+    @apply bg-black bg-opacity-10 outline-none;
   }
 }
