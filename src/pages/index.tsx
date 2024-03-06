@@ -183,25 +183,25 @@ export default function Home() {
               className="rounded bg-secondary px-5 py-2 transition hover:bg-secondary-focus"
               onClick={addEmbed}
             >
-              +Embed
+              Add Embed
             </button>
             <button
               className="rounded bg-secondary px-5 py-2 transition hover:bg-secondary-focus"
               onClick={() => addRow("button")}
             >
-              +Button Row
+              Add Button Row
             </button>
             <button
               className="rounded bg-secondary px-5 py-2 transition hover:bg-secondary-focus"
               onClick={() => addRow("select")}
             >
-              +Select Row
+              Add Select Row
             </button>
             <button
               className="rounded bg-secondary px-5 py-2 transition hover:bg-secondary-focus"
               onClick={reset}
             >
-              Reset
+              Reset components
             </button>
           </div>
         </form>
