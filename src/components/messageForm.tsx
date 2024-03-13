@@ -15,7 +15,7 @@ import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
 import { useToast } from "./ui/use-toast";
 import { Separator } from "./ui/separator";
-import { useState, type Dispatch, type SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import { CopyIcon, TrashIcon, CaretSortIcon } from "@radix-ui/react-icons";
 import {
   Collapsible,
@@ -63,9 +63,6 @@ export function MessageForm({
     control: form.control,
     name: "embeds",
   });
-
-  // const [embeds, setEmbeds] = useState([] as number[]);
-  const [rows, setRows] = useState([] as ("button" | "select")[]);
 
   const { toast } = useToast();
 
@@ -193,7 +190,7 @@ export function MessageForm({
           </CollapsibleTrigger>
           <CollapsibleContent className="space-y-3">
             {embeds.fields.map((field, index) => (
-              <Embed key={field.id} id={index} form={form} />
+              <Embed key={field.id} id={index} form={form} field={embeds} />
             ))}
             <Button
               type="button"
