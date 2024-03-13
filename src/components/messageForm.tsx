@@ -16,16 +16,12 @@ import { Button } from "./ui/button";
 import { useToast } from "./ui/use-toast";
 import { Separator } from "./ui/separator";
 import { useState, type Dispatch, type SetStateAction } from "react";
-import { CopyIcon, TrashIcon } from "@radix-ui/react-icons";
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+import { CopyIcon, TrashIcon, CaretSortIcon } from "@radix-ui/react-icons";
 import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "./ui/command";
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "./ui/collapsible";
 
 export const formSchema = z.object({
   name: z.string().min(2).max(10).toLowerCase().default("example"),
@@ -132,55 +128,70 @@ export function MessageForm({
             </FormItem>
           )}
         />
-        <div className="space-y-3">
-          <div className="font-bold">Attachments</div>
-          {fields.map((field, index) => (
-            <div key={field.id}>
-              <FormField
-                control={form.control}
-                name={`attachments.${index}.name`}
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Attachment {index}</FormLabel>
-                    <FormControl>
-                      <div className="flex space-x-2">
-                        <Input placeholder="name" {...field} />
-                        <Button
-                          type="button"
-                          onClick={() => remove(index)}
-                          size="icon"
-                          variant="destructive"
-                        >
-                          <TrashIcon />
-                        </Button>
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-          ))}
-          <Button
-            type="button"
-            onClick={() => append({ name: "" })}
-            variant="outline"
-          >
-            Add attachment
-          </Button>
-        </div>
-        <div className="space-y-3">
-          <div className="font-bold">Embeds</div>
-          <Button type="button" variant="outline">
-            Add embed
-          </Button>
-        </div>
-        <div className="space-y-3">
-          <div className="font-bold">Component rows</div>
-          <Button type="button" variant="outline">
-            Add row
-          </Button>
-        </div>
+        <Collapsible className="space-y-3">
+          <CollapsibleTrigger className="flex items-center space-x-1 space-y-0">
+            <span className="font-bold">Attachments</span>
+            <CaretSortIcon />
+          </CollapsibleTrigger>
+          <CollapsibleContent>
+            {fields.map((field, index) => (
+              <div key={field.id}>
+                <FormField
+                  control={form.control}
+                  name={`attachments.${index}.name`}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Attachment {index}</FormLabel>
+                      <FormControl>
+                        <div className="flex space-x-2">
+                          <Input placeholder="name" {...field} />
+                          <Button
+                            type="button"
+                            onClick={() => remove(index)}
+                            size="icon"
+                            variant="destructive"
+                          >
+                            <TrashIcon />
+                          </Button>
+                        </div>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+            ))}
+            <Button
+              type="button"
+              onClick={() => append({ name: "" })}
+              variant="outline"
+            >
+              Add attachment
+            </Button>
+          </CollapsibleContent>
+        </Collapsible>
+        <Collapsible className="space-y-3">
+          <CollapsibleTrigger className="flex items-center space-x-1 space-y-0">
+            <span className="font-bold">Embeds</span>
+            <CaretSortIcon />
+          </CollapsibleTrigger>
+          <CollapsibleContent>
+            <Button type="button" variant="outline">
+              Add embed
+            </Button>
+          </CollapsibleContent>
+        </Collapsible>
+        <Collapsible className="space-y-3">
+          <CollapsibleTrigger className="flex items-center space-x-1 space-y-0">
+            <span className="font-bold">Component rows</span>
+            <CaretSortIcon />
+          </CollapsibleTrigger>
+          <CollapsibleContent>
+            <Button type="button" variant="outline">
+              Add row
+            </Button>
+          </CollapsibleContent>
+        </Collapsible>
       </form>
     </Form>
   );
