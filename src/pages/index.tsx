@@ -56,7 +56,7 @@ export default function Home() {
           </NavigationMenu>
         </div>
         <div className="flex gap-10">
-          <div className="w-1/2">
+          <div className="h-[600px] w-1/2 overflow-x-visible overflow-y-scroll px-1">
             <h1 className="mb-5 text-2xl font-bold">Builder Form</h1>
             <MessageForm setData={setData} />
           </div>
