@@ -1,7 +1,5 @@
-import { useState } from "react";
-import { Field } from "./field";
-import { UseFormReturn } from "react-hook-form";
-import { formValues } from "./messageForm";
+import type { UseFieldArrayReturn, UseFormReturn } from "react-hook-form";
+import type { formValues } from "./messageForm";
 import {
   FormControl,
   FormField,
@@ -12,26 +10,17 @@ import {
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
-import { TrashIcon } from "@radix-ui/react-icons";
 import { Separator } from "./ui/separator";
 
 export function Embed({
   id,
   form,
+  field,
 }: {
   id: number;
   form: UseFormReturn<formValues, unknown, undefined>;
+  field: UseFieldArrayReturn<formValues, "embeds", "id">;
 }) {
-  const [fields, setFields] = useState([] as boolean[]);
-
-  function addField() {
-    setFields([...fields, false]);
-  }
-
-  function resetFields() {
-    setFields([]);
-  }
-
   return (
     <div className="space-y-3 px-2">
       <div className="font-bold">Embed {id}</div>
@@ -62,13 +51,19 @@ export function Embed({
         )}
       />
       <div>
-        {fields.map((item, i) => (
+        {/* {fields.map((item, i) => (
           <Field key={i} id={i} />
-        ))}
+        ))} */}
       </div>
       <div className="flex space-x-2 space-y-0">
         <Button variant="outline">Add field</Button>
-        <Button variant="destructive">Delete embed</Button>
+        <Button
+          variant="destructive"
+          type="button"
+          onClick={() => field.remove(id)}
+        >
+          Delete embed
+        </Button>
       </div>
       <Separator />
     </div>
