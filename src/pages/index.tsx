@@ -31,14 +31,26 @@ export default function Home() {
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  <DiscordLogoIcon className="mr-2" /> Discord
-                </NavigationMenuLink>
+                <Link
+                  href="https://discord.gg/starrysky"
+                  legacyBehavior
+                  passHref
+                >
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    <DiscordLogoIcon className="mr-2" /> Discord
+                  </NavigationMenuLink>
+                </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  <GitHubLogoIcon className="mr-2" /> GitHub
-                </NavigationMenuLink>
+                <Link
+                  href="https://github.com/nikkoxd/stella-embed-builder"
+                  legacyBehavior
+                  passHref
+                >
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    <GitHubLogoIcon className="mr-2" /> GitHub
+                  </NavigationMenuLink>
+                </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
