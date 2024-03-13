@@ -1,7 +1,27 @@
 import { useState } from "react";
 import { Field } from "./field";
+import { UseFormReturn } from "react-hook-form";
+import { formValues } from "./messageForm";
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "./ui/form";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import { Button } from "./ui/button";
+import { TrashIcon } from "@radix-ui/react-icons";
+import { Separator } from "./ui/separator";
 
-export function Embed({ id }: { id: number }) {
+export function Embed({
+  id,
+  form,
+}: {
+  id: number;
+  form: UseFormReturn<formValues, unknown, undefined>;
+}) {
   const [fields, setFields] = useState([] as boolean[]);
 
   function addField() {
@@ -13,51 +33,44 @@ export function Embed({ id }: { id: number }) {
   }
 
   return (
-    <div
-      className={`embed mb-2 flex w-fit flex-col items-stretch overflow-hidden rounded border-l-4 bg-bg-secondary p-2`}
-    >
-      <input
-        type="text"
-        name="embed-title"
-        placeholder="Title"
-        className="font-bold"
-        required={true}
+    <div className="space-y-3 px-2">
+      <div className="font-bold">Embed {id}</div>
+      <FormField
+        control={form.control}
+        name={`embeds.${id}.title`}
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Embed title</FormLabel>
+            <FormControl>
+              <Input placeholder="Some title" {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
       />
-      <textarea name="embed-description" placeholder="Description" />
-      <div className="fields">
+      <FormField
+        control={form.control}
+        name={`embeds.${id}.description`}
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Embed description</FormLabel>
+            <FormControl>
+              <Textarea placeholder="Some description" {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      <div>
         {fields.map((item, i) => (
           <Field key={i} id={i} />
         ))}
       </div>
-      <div className="flex gap-2">
-        <label
-          htmlFor={`color-${id}`}
-          className="cursor-pointer hover:underline hover:underline-offset-4"
-        >
-          Set color
-        </label>
-        <input
-          type="color"
-          name="embed-color"
-          id={`color-${id}`}
-          onChange={(e) => setColor(e.target.value)}
-          className="hidden"
-        />
-        <button
-          type="button"
-          className="hover:underline hover:underline-offset-4"
-          onClick={addField}
-        >
-          Add field
-        </button>
-        <button
-          type="button"
-          className="hover:underline hover:underline-offset-4"
-          onClick={resetFields}
-        >
-          Reset fields
-        </button>
+      <div className="flex space-x-2 space-y-0">
+        <Button variant="outline">Add field</Button>
+        <Button variant="destructive">Delete embed</Button>
       </div>
+      <Separator />
     </div>
   );
 }

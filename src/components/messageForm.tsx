@@ -22,15 +22,25 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "./ui/collapsible";
+import { Embed } from "./embed";
 
 export const formSchema = z.object({
   name: z.string().min(2).max(10).toLowerCase().default("example"),
   content: z.string().max(255).optional().default(""),
   attachments: z
-    .object({ name: z.string().min(1) })
+    .object({ name: z.string().min(2) })
     .array()
     .or(z.string().array())
-    .optional(),
+    .optional()
+    .default([]),
+  embeds: z
+    .object({
+      title: z.string().min(2).max(255).default("Title"),
+      description: z.string().max(255).optional().default(""),
+    })
+    .array()
+    .optional()
+    .default([]),
 });
 
 export type formValues = z.infer<typeof formSchema>;
@@ -44,11 +54,17 @@ export function MessageForm({
     resolver: zodResolver(formSchema),
   });
 
-  const { fields, append, remove } = useFieldArray({
+  const attachments = useFieldArray({
     control: form.control,
     name: "attachments",
   });
 
+  const embeds = useFieldArray({
+    control: form.control,
+    name: "embeds",
+  });
+
+  // const [embeds, setEmbeds] = useState([] as number[]);
   const [rows, setRows] = useState([] as ("button" | "select")[]);
 
   const { toast } = useToast();
@@ -134,7 +150,7 @@ export function MessageForm({
             <CaretSortIcon />
           </CollapsibleTrigger>
           <CollapsibleContent className="space-y-3">
-            {fields.map((field, index) => (
+            {attachments.fields.map((field, index) => (
               <div key={field.id}>
                 <FormField
                   control={form.control}
@@ -147,7 +163,7 @@ export function MessageForm({
                           <Input placeholder="name" {...field} />
                           <Button
                             type="button"
-                            onClick={() => remove(index)}
+                            onClick={() => attachments.remove(index)}
                             size="icon"
                             variant="destructive"
                           >
@@ -163,7 +179,7 @@ export function MessageForm({
             ))}
             <Button
               type="button"
-              onClick={() => append({ name: "" })}
+              onClick={() => attachments.append({ name: "" })}
               variant="outline"
             >
               Add attachment
@@ -176,7 +192,14 @@ export function MessageForm({
             <CaretSortIcon />
           </CollapsibleTrigger>
           <CollapsibleContent className="space-y-3">
-            <Button type="button" variant="outline">
+            {embeds.fields.map((field, index) => (
+              <Embed key={field.id} id={index} form={form} />
+            ))}
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => embeds.append({ title: "", description: "" })}
+            >
               Add embed
             </Button>
           </CollapsibleContent>
