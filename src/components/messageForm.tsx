@@ -133,7 +133,7 @@ export function MessageForm({
             <span className="font-bold">Attachments</span>
             <CaretSortIcon />
           </CollapsibleTrigger>
-          <CollapsibleContent>
+          <CollapsibleContent className="space-y-3">
             {fields.map((field, index) => (
               <div key={field.id}>
                 <FormField
@@ -175,7 +175,7 @@ export function MessageForm({
             <span className="font-bold">Embeds</span>
             <CaretSortIcon />
           </CollapsibleTrigger>
-          <CollapsibleContent>
+          <CollapsibleContent className="space-y-3">
             <Button type="button" variant="outline">
               Add embed
             </Button>
@@ -186,7 +186,7 @@ export function MessageForm({
             <span className="font-bold">Component rows</span>
             <CaretSortIcon />
           </CollapsibleTrigger>
-          <CollapsibleContent>
+          <CollapsibleContent className="space-y-3">
             <Button type="button" variant="outline">
               Add row
             </Button>
