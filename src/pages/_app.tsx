@@ -1,18 +1,14 @@
 import { type AppType } from "next/app";
-import { Noto_Sans } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 
 import { api } from "~/utils/api";
 
 import "~/styles/globals.css";
 
-const noto = Noto_Sans({
-  subsets: ["cyrillic", "latin"],
-  variable: "--font-sans",
-});
-
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
-    <main className={`font-sans ${noto.variable}`}>
+    <main className={`${GeistSans.variable} ${GeistMono.variable} font-sans`}>
       <Component {...pageProps} />
     </main>
   );

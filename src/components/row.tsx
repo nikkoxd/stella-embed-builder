@@ -1,27 +1,29 @@
+import { Input } from "./ui/input";
+
 export function Row({ id, type }: { id: number; type: "button" | "select" }) {
   if (type == "button") {
     return (
       <div className="row button mb-2 flex flex-col rounded bg-bg-secondary p-2">
-        <input
+        <Input
           type="text"
           name="button-customId"
           placeholder="Button Id"
           required={true}
         />
-        <input
+        <Input
           type="text"
           name="button-label"
           placeholder="Button Label"
           required={true}
         />
-        <input
+        <Input
           type="text"
           name="button-style"
           placeholder="Button Style"
           required={true}
         />
-        <input type="text" name="button-emoji" placeholder="Button Emoji" />
-        <input type="text" name="button-url" placeholder="Button URL" />
+        <Input type="text" name="button-emoji" placeholder="Button Emoji" />
+        <Input type="text" name="button-url" placeholder="Button URL" />
         <div className="flex gap-1">
           <input
             type="checkbox"
